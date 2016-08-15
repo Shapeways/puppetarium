@@ -1,0 +1,16 @@
+---
+version: 4
+datadir: "../../data/profiles"
+hierarchy:
+  - name: "DC Nodes Immutable"
+    backend: yaml
+    path: "nodes/%{dc}/%{hostname}-immutable"
+  - name: "DC Nodes"
+    backend: yaml
+    path: "nodes/%{dc}/%{hostname}"
+  - name: "DC specific data"
+    backend: yaml
+    path: "locations/%{dc}"
+  - name: "Common to all nodes"
+    backend: yaml
+    path: "common/*"
