@@ -13,4 +13,4 @@ hierarchy:
     path: "locations/%{dc}"
   - name: "Common to all nodes"
     backend: yaml
-    path: "common/*"
+    path: "common"

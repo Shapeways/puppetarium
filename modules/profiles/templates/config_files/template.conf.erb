@@ -1,1 +1,15 @@
-test file
+# Configured by puppet
+
+<%-# Output Linux Distro -%>
+<%= @os['distro']['id'] %>
+
+inital_processes=<%= @num_processes %>
+
+<%- if @interfaces.each -%>
+	<%- @interfaces.each do |name, data| -%>
+	<%-# Sample debugging output -%>
+	<%- scope.function_warning(["name:",name]) -%>
+<%= name %>:
+  type <%= data['type'] %>
+	<%- end -%>
+<%- end -%>
