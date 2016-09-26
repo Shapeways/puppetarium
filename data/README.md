@@ -22,7 +22,7 @@ hierarchy:
     path: "common/*"
   ```
 
-When Puppet performs a lookup for a specific node, the value of the data is based on this heirarchy and the `lookup_options` defined for the key/value in `data/profiles/common/$module_name.yaml`. The `lookup_options` allow you to define a merge strategy other than the default of first match wins (i.e. lookups would return values in common.yaml).
+When Puppet performs a lookup for a specific node, the value of the data is based on this heirarchy and the `lookup_options` defined for the key/value in `data/profiles/common/$module_name.yaml`. The `lookup_options` allow you to define a merge strategy other than the default of first match wins (i.e. lookups would return values in the first file to contain the data).
 
 Here is an example `lookup_options`:
 ```yaml
