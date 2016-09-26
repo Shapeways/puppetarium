@@ -1,6 +1,6 @@
 ---
 version: 4
-datadir: "../../data/profiles"
+datadir: "../../data/modules/profiles"
 hierarchy:
   - name: "DC Nodes Immutable"
     backend: yaml

@@ -33,3 +33,6 @@ lookup_options:
 ```
 
 The `deep` fits our needs in most cases. It allows general and default configuration data to be put into `common/` while allowing certain elements of an array or hash to be overrode by more specific configuration data in higher priority YAML files.
+
+Lookup Data with `puppet lookup`
+`puppet lookup --node martinb-1404 env_deployroot --explain`
