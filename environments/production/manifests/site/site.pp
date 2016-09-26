@@ -6,8 +6,8 @@ if $fqdn =~ /nyc.shapeways.net$/ {
     $dc = 'nyc'
     notice("Welcome to NYC!")
 } elsif $hostname =~ /-aws1a-euwest$/ {
-    $dc = 'aws1a-euwest'
     $provider = 'aws'
+    $dc = 'aws1a-euwest'
     notice("Welcome to AWS EU West 1a!")
 } elsif $hostname =~ /-lab$/ {
     $provider = 'sw'
