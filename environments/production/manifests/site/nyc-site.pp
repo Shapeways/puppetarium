@@ -8,5 +8,5 @@ node 'example.nyc.shapeways.net' {
 
 #Catch-all for nyc.shapeways.net
 node /nyc.shapeways.net$/ {
-	include profiles::test
+	include profiles::config_files
 }
