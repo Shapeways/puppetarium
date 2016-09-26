@@ -34,7 +34,7 @@ look, multiple lines',
     ensure => present,
     owner => "root",
     group => "root",
-    mode => "0440",
+    mode => "0660",
   }->
 
   # Templitized config file
@@ -43,7 +43,7 @@ look, multiple lines',
     ensure => present,
     owner => "root",
     group => "root",
-    mode => "0440",
+    mode => "0660",
   } ->
 
   # remove a file that should not exist
