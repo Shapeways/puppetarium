@@ -1,0 +1,2 @@
+#!/bin/bash
+puppet apply --codedir /data/sw-puppet/ --modulepath /data/sw-puppet/modules --fileserverconfig=/data/sw-puppet/fileserver.conf /data/sw-puppet/environments/production/manifests/site/
