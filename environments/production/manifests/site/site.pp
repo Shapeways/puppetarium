@@ -1,7 +1,7 @@
 # Site manifest
 
 #set up global $idc variable
-if $fqdn =~ /-idc1.shapeways.net$/ {
+if $fqdn =~ /idc1.shapeways.net$/ {
     $provider = 'sw'
     $dc = 'idc1'
     notice("Welcome to Datacenter 1!")
