@@ -8,16 +8,16 @@ lookup_options:
       strategy: deep
   
 profiles::config_files::params::data:
-    num_processes: '5'
+    num_processes: 5
     interfaces:
       eth0:
-        type: one
+        type: 'one'
       eth1:
-        type: standard
+        type: 'standard'
       p3p4:
-        type: one
+        type: 'one'
       em1:
-        type: more
+        type: 'more'
   
 profiles::example::data:
     key: "value"
