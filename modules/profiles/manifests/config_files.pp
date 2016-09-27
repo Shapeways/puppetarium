@@ -8,7 +8,7 @@ class profiles::config_files(
     ensure => 'directory',
     owner  => 'root',
     group  => 'root',
-    mode   => '2775'
+    mode   => '2775',
   } ->
 
   # Creating a directory and copying all files in a directory in the repo into the dir
@@ -24,7 +24,7 @@ class profiles::config_files(
   # sym link to another file
   file { '/etc/config-profile/bind/active.conf' :
     ensure => 'link',
-    target => '/etc/config-profile/bind/file_b.conf'
+    target => '/etc/config-profile/bind/file_b.conf',
   } ->
 
   # Hard coded file
