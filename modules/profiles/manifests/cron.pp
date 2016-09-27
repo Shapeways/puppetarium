@@ -1,6 +1,6 @@
 # gets $cronjobs from hiera
 class profiles::cron (
-  $cronjobs = $profiles::cron::params::cronjobs
+  $cronjobs = $profiles::cron::params::cronjobs,
 ) inherits profiles::cron::params {
   # use torrancew/puppet-cron module to create cronjobs in /etc/cron.d
   include cron
@@ -12,7 +12,7 @@ class profiles::cron (
   # create cronjobber
   if (file('/usr/local/bin/cronjobber', '/dev/null') == '') {
     file { '/tmp/cronjobber.c':
-      ensure  => 'present',
+      ensure => 'present',
       source => 'puppet:///modules/profiles/cron/cronjobber.c',
     }
   }
