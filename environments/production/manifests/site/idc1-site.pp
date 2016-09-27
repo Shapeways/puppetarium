@@ -7,6 +7,6 @@ node 'puppetarium-idc1.idc1.shapeways.net' {
 }
 
 #Catch-all for nyc.shapeways.net
-node /idc1.shapeways.net$/ {
-	include profiles::test
+node /nyc.shapeways.net$/ {
+	include profiles::config_files
 }
