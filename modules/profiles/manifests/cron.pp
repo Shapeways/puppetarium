@@ -1,29 +1,32 @@
-# gets $data from hiera
-class profiles::cron($data = '') {
+# gets $cronjobs from hiera
+class profiles::cron (
+  $cronjobs = profiles::cron::params::data,
+) inherits profiles::cron::params {
+  # use torrancew/puppet-cron module to create cronjobs in /etc/cron.d
   include cron
 
-  package {['gcc']:
+  package { ['gcc']:
     ensure  => 'installed',
   }
 
   # create cronjobber
   if (file('/usr/local/bin/cronjobber', '/dev/null') == '') {
-    file {'/tmp/cronjobber.c':
+    file { '/tmp/cronjobber.c':
       ensure  => 'present',
       source => 'puppet:///modules/profiles/cron/cronjobber.c',
     }
   }
-  exec {'compile_cronjobber':
+  exec { 'compile_cronjobber':
     command => '/usr/bin/gcc -Wall /tmp/cronjobber.c -o /usr/local/bin/cronjobber; rm /tmp/cronjobber.c',
     creates => '/usr/local/bin/cronjobber'
-  }->
-  file {'/var/log/cronjobber':
+  } ->
+  file { '/var/log/cronjobber':
     ensure => 'directory',
   }
 
-  if $data != '' {
-    $data.each |String $name, Hash $cron| {
-      file {"/var/log/cronjobber/${name}":
+  if $cronjobs != '' {
+    $cronjobs.each |String $name, Hash $cron| {
+      file { "/var/log/cronjobber/${name}":
         ensure => 'directory',
       }
       if $cron['cronjobber'] {

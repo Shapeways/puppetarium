@@ -1,5 +1,5 @@
 ---
-profiles::cron::data:
+profiles::cron::params::data:
   # normal cronjob, every Sunday at 7 AM
   cronjob1:
     command: "/bin/echo 'I am cronjob no. 1'"
