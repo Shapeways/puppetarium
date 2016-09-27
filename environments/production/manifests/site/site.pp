@@ -1,10 +1,10 @@
 # Site manifest
 
 #set up global $idc variable
-if $fqdn =~ /nyc.shapeways.net$/ {
+if $fqdn =~ /-idc1.shapeways.net$/ {
     $provider = 'sw'
-    $dc = 'nyc'
-    notice("Welcome to NYC!")
+    $dc = 'idc1'
+    notice("Welcome to Datacenter 1!")
 } elsif $hostname =~ /-aws1a-euwest$/ {
     $provider = 'aws'
     $dc = 'aws1a-euwest'
