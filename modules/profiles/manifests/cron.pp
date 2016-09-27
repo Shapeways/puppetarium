@@ -18,6 +18,7 @@ class profiles::cron (
   }
   exec { 'compile_cronjobber':
     command => '/usr/bin/gcc -Wall /tmp/cronjobber.c -o /usr/local/bin/cronjobber; rm /tmp/cronjobber.c',
+    # only execute if that file is not created yet
     creates => '/usr/local/bin/cronjobber',
   } ->
   file { '/var/log/cronjobber':
