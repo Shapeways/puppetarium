@@ -6,19 +6,19 @@ class profiles::config_files(
   # Creating a directory and setting it's ownership / mode
   file { '/etc/config-profile' :
     ensure => 'directory',
-    owner => 'root',
-    group => 'root',
-    mode => '2775'
+    owner  => 'root',
+    group  => 'root',
+    mode   => '2775'
   } ->
 
   # Creating a directory and copying all files in a directory in the repo into the dir
   file { '/etc/config-profile/bind' :
-    ensure => 'directory',
-    owner => 'root',
-    group => 'root',
-    mode => '2775',
+    ensure  => 'directory',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '2775',
     recurse => true,
-    source => 'puppet:///modules/profiles/config_files/bind',
+    source  => 'puppet:///modules/profiles/config_files/bind',
   } ->
 
   # sym link to another file
@@ -31,19 +31,19 @@ class profiles::config_files(
   file { '/etc/config-profile/hard_coded.conf' :
     content => 'Hard coded content for the file goes here
 look, multiple lines',
-    ensure => 'present',
-    owner => 'root',
-    group => 'root',
-    mode => '0660',
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0660',
   } ->
 
   # Templitized config file
   file { '/etc/config-profile/tempitized.conf' :
-  content => template('profiles/config_files/template.conf.erb'),
-    ensure => 'present',
-    owner => 'root',
-    group => 'root',
-    mode => '0660',
+    content => template('profiles/config_files/template.conf.erb'),
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0660',
   } ->
 
   # remove a file that should not exist
@@ -54,6 +54,6 @@ look, multiple lines',
   # remove a directory that should not exist
   file { '/etc/config-profile/empty-dir' :
     ensure => 'absent',
-    force => true,
+    force  => true,
   }
 }
