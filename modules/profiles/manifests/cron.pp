@@ -1,6 +1,6 @@
 # gets $cronjobs from hiera
 class profiles::cron (
-  $cronjobs = profiles::cron::params::data,
+  $cronjobs = $profiles::cron::params::cronjobs
 ) inherits profiles::cron::params {
   # use torrancew/puppet-cron module to create cronjobs in /etc/cron.d
   include cron
@@ -18,7 +18,7 @@ class profiles::cron (
   }
   exec { 'compile_cronjobber':
     command => '/usr/bin/gcc -Wall /tmp/cronjobber.c -o /usr/local/bin/cronjobber; rm /tmp/cronjobber.c',
-    creates => '/usr/local/bin/cronjobber'
+    creates => '/usr/local/bin/cronjobber',
   } ->
   file { '/var/log/cronjobber':
     ensure => 'directory',
