@@ -14,7 +14,7 @@ if $fqdn =~ /idc1.shapeways.net$/ {
     $dc = 'lab'
     notice("Welcome to DEBUG!")
 } else {
-    $dc = ''
+    $dc_provider = ''
     $provider = ''
 }
 
