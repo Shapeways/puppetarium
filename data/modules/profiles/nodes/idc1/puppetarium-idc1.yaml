@@ -9,5 +9,5 @@ profiles::cron::params::data:
   # cronjob with cronjobber, every hour minute 13
   cronjob2:
     cronjobber: "/bin/echo 'I am cronjob no. 2'"
-    hour: "*/1"
+    hour: "*"
     minute: "13"
