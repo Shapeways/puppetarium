@@ -1,6 +1,6 @@
 ---
 profiles::cron::params::data:
-  # normal cronjob, every Sunday at 7 AM
+  # normal cronjob, every Sunday at 07:00
   cronjob1:
     command: "/bin/echo 'I am cronjob no. 1'"
     weekday: "Sunday"
