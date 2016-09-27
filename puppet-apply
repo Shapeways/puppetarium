@@ -1,2 +1,2 @@
 #!/bin/bash
-puppet apply --codedir /data/puppetarium/ --modulepath /data/puppetarium/modules --fileserverconfig=/data/puppetarium/fileserver.conf /data/puppetarium/environments/production/manifests/site/
+puppet apply --verbose --codedir /data/puppetarium/ --modulepath /data/puppetarium/modules --fileserverconfig=/data/puppetarium/fileserver.conf /data/puppetarium/environments/production/manifests/site/
