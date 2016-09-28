@@ -1,0 +1,12 @@
+---
+profiles::cron::params::data:
+  # normal cronjob, every Sunday at 07:00
+  cronjob1:
+    command: "/bin/echo 'I am cronjob no. 1'"
+    weekday: "Sunday"
+    hour: "7"
+    minute: "0"
+  # cronjob with cronjobber, every hour minute 13
+  cronjob2:
+    cronjobber: "/bin/echo 'I am cronjob no. 2'"
+    minute: "13"
