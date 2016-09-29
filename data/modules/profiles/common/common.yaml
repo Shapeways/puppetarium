@@ -1,8 +1,0 @@
----
-lookup_options:
-  profiles::example::data:
-    merge:
-      strategy: deep
-  
-profiles::example::data:
-    key: "value"
