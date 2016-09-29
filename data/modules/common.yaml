@@ -1,0 +1,16 @@
+---
+lookup_options:
+  profiles::daemon::params::data:
+    merge:
+      strategy: deep
+
+profiles::daemon::params::data:
+    daemon: '/usr/local/bin/puppetarium-test-daemon.sh'
+    logdir: &logdir '/var/log'
+    daemonargs:
+        - '--logdir'
+        - *logdir
+    workingdirectory: '/tmp'
+    user: 'root'
+    group: 'root'
+

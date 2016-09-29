@@ -1,9 +1,21 @@
 class profiles::daemon(
-  $data = '',
-  ) {
+    $daemon = $profiles::daemon::params::daemon ,
+    $daemonargs = $profiles::daemon::params::daemonargs ,
+    $workingdirectory = $profiles::daemon::params::workingdirectory ,
+    $user = $profiles::daemon::params::user ,
+    $group = $profiles::daemon::params::group ,
+
+    $active_dc = $profiles::daemon::params::active_dc ,
+  ) inherits profiles::daemon::params {
 
   include upstart
 
+  file { $daemon :
+    source  => 'puppet:///modules/profiles/files/daemon/fakedaemon.sh',
+    mode    => '0755',
+    ensure  => 'file',
+  }
+ 
   # Only define job (running, start on boot) if node is in the active datacenter
   if ($dc == $active_dc) {
     upstart::job { 'puppetariumtestdaemon' :
@@ -14,7 +26,7 @@ class profiles::daemon(
       user            => "${user}",
       group           => "${group}",
       chdir           => "${workingdirectory}",
-      exec            => "${workingdirectory}/bin/puppetariumtestdaemon --logdir ${workingdirectory}/logs",
+      exec            => "${daemon} ${daemonargs}",
       post_stop       => "exec sleep 60",
       env             => { "PATH" => "${facts['path']}" },
       service_ensure  => 'running',
@@ -30,7 +42,7 @@ class profiles::daemon(
                          "status puppetariumtestdaemon",
                          "status puppetariumtestdaemon | grep -q start/running",
                        ],
-    }
+    } ->
     upstart::job { 'puppetariumtestdaemon' :
       ensure  => 'absent',
     }

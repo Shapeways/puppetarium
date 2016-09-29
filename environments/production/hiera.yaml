@@ -1,0 +1,16 @@
+---
+version: 4
+datadir: "../../data/environments/production"
+hierarchy:
+  - name: "DC Nodes Generated"
+    backend: yaml
+    path: "nodes/%{dc}/%{hostname}-generated"
+  - name: "DC Nodes"
+    backend: yaml
+    path: "nodes/%{dc}/%{hostname}"
+  - name: "DC specific data"
+    backend: yaml
+    path: "locations/%{dc}"
+  - name: "common"
+    backend: yaml
+
