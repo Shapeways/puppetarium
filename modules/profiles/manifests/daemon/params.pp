@@ -1,5 +1,5 @@
 class profiles::daemon::params(
-  $data = '',
+  $data = {},
   ) {
 
   # this $data comes from profiles::daemon::params in puppetarium/data/modules/profiles/ 

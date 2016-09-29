@@ -6,6 +6,9 @@ lookup_options:
   profiles::config_files::params::data:
     merge:
       strategy: deep
+  profiles::daemon::params::data:
+    merge:
+      strategy: deep
   
 profiles::config_files::params::data:
     num_processes: 5
@@ -21,3 +24,14 @@ profiles::config_files::params::data:
   
 profiles::example::data:
     key: "value"
+
+profiles::daemon::params::data:
+    daemon: '/usr/local/bin/puppetarium-test-daemon.sh'
+    logdir: &logdir '/var/log'
+    daemonargs:
+        - '--logdir'
+        - *logdir
+    workingdirectory: '/tmp'
+    user: 'root'
+    group: 'root'
+
