@@ -11,7 +11,7 @@ class profiles::daemon(
   include upstart
 
   file { $daemon :
-    source  => 'puppet:///modules/profiles/files/daemon/fakedaemon.sh',
+    source  => 'puppet:///modules/profiles/daemon/fakedaemon.sh',
     mode    => '0755',
     ensure  => 'file',
   }
@@ -26,8 +26,8 @@ class profiles::daemon(
       user            => "${user}",
       group           => "${group}",
       chdir           => "${workingdirectory}",
-      exec            => "${daemon} ${daemonargs}",
-      post_stop       => "exec sleep 60",
+      exec            => join(concat(["${daemon}"], $daemonargs), " "),
+      post_stop       => "exec sleep 1",
       env             => { "PATH" => "${facts['path']}" },
       service_ensure  => 'running',
       service_enable  => true,
